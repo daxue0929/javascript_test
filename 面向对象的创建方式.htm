@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象之创建方式</title>
+
+	<script type="text/javascript">
+	// 创建对象的三种方式
+
+		// ①通过new关键字创建对象
+		// var obj = new Object();
+		// obj.name = 'daxue';
+		// obj.age = 28;
+
+		// obj.fun = function(){
+
+		// }
+		// alert(obj.age);
+
+		// // ②简单字面量
+		// var obj2 = {};
+		// obj2.name = "ben";
+		// obj2.sex = "女";
+		// obj2.fun2 = function(){
+		// 	alert(this.name)
+		// }
+		// obj2.fun2();
+		
+		// ②-①嵌套字面量
+		// var obj3 = {
+		// 	name : "bob",
+		// 	age : 20,
+
+		// 	fun3:function(){
+		// 		// console.log(this.name);
+		// 		alert(this.name);
+		// 	}
+		// }
+		// obj3.fun3();
+		
+		// 在JS中有两种定义函数的方式，
+	/*
+		1是var aaa=function(){...}
+		2是function aaa(){...}
+		var 方式定义的函数，不能先调用函数，后声明，只能先声明函数，然后调用。
+		function方式定义函数可以先调用，后声明
+	*/
+		// ①
+		// function add(){}
+		// ②
+		// var add = function(){
+
+		// }
+
+		// 第三种创建对象的方式
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+			this.fun4 = function(){
+				return this.name;
+			}
+		}
+		var p = new Person('sonia',19);
+		alert(p.name);
+
+
+		// 闭包是函数乔涛函数,内部函数可以引用外部函数的参数和变量,参数和
+		// 变量不会被垃圾回收机制收回
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
