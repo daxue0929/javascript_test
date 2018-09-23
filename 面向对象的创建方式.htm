@@ -53,23 +53,68 @@
 		// }
 
 		// 第三种创建对象的方式
-		function Person(name,age){
-			this.name = name;
-			this.age = age;
-			this.fun4 = function(){
-				return this.name;
-			}
-		}
-		var p = new Person('sonia',19);
-		alert(p.name);
+		// function Person(name,age){
+		// 	this.name = name;
+		// 	this.age = age;
+		// 	this.fun4 = function(){
+		// 		return this.name;
+		// 	}
+		// }
+		// var p = new Person('sonia',19);
+		// alert(p.name);
 
-
-		// 闭包是函数乔涛函数,内部函数可以引用外部函数的参数和变量,参数和
+		/* 封闭函数是js中匿名函数的另一种写法,创建一个一开始就执行而不用命名的函数
+			1、一般函数的定义和执行函数
+			2、封闭函数的定义和执行：(function(){...})();还可以在函数定义前加上"~"或者"!"符号来定义匿名函数。
+		*/
+		/*	(function(){
+				.....
+			})();
+		*/
+		// 闭包是函数嵌套函数,内部函数可以引用外部函数的参数和变量,参数和
 		// 变量不会被垃圾回收机制收回
 		
+		// 闭包的应用1: 将一个变量长期驻扎在内存当中,可用于循环中存索引值
+		
+		window.onload = function(){
+			var aLi = document.getElementsByTagName('li');
+			for (var i = 0;i<aLi.length;i++){
+				//m为形参
+				(function(m){
+					aLi[m].onclick = function(){
+						console.log(m);
+					}
+				})(i);
+			}
+		}
+
+		// 闭包的用途2: 私有化变量计数器,外部无法访问,避免全局变量的污染
+
+		window.onload = function(){
+			//封闭函数
+			var count = (function (){
+				var a =0;
+				//闭包(函数嵌套函数)
+				function b(){
+					a++;
+					return a;
+				}
+				return b;
+			})();
+			count();
+			console.log(count())//输出2
+			console.log(count())//输出3
+		}
 	</script>
 </head>
 <body>
-	
+	<ul>
+		<li>新闻标题</li>
+		<li>新闻标题</li>
+		<li>新闻标题</li>
+		<li>新闻标题</li>
+		<li>新闻标题</li>
+		<li>新闻标题</li>
+	</ul>
 </body>
 </html>
