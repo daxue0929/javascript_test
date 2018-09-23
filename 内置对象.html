@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内置对象的测试</title>
+	<script type="text/javascript">
+
+		/*
+			比如说在商品详情页观看时,想去购买,这时会跳转到登录页面,登录成功后使用该
+			方法跳转到商品详情页
+
+			document.referrer  获取上一个跳转页面的地址
+
+			window.location.href  获取或者重定向url地址
+		*/
+		window.onload = function(){
+			var backurl = document.referrer;
+			/*
+				处理中间登录的逻辑,如果成功就跳转
+			*/
+			window.location.href = backurl;
+		}
+		/*
+			window.location.search  获取地址参数部分
+		*/
+		window.onload = function(){
+			var href = window.location.search;
+			alert(href);
+			
+			var arr = href.split('=');
+			console.log(arr);  //输出["?id","5"]
+			//或者使用href.substring(4);  //输出5
+			console.log(arr[1])  //输出5
+
+			// 获取页面锚点或者哈希值
+			var hash = window.location.hash;
+			alert(hash); //即url中#后的参数
+		}
+		window.onload = function(){
+			var num = Math.random();
+			console.log(num) //输出0-1之间的随机数
+			var a = 10;
+			var b = 20;
+			//floor向下取整
+			var num1 = Math.floor(Math.random()*(b-a)+a)  //输出10-20之间的随机数
+			console.log(num1);
+
+			//Math.ceil 向上取整
+			// var num3 = Math.ceil(Math.random()*(b-a)+a);
+			var num4 = Math.random()*(b-a)+a;
+			var num3 = Math.ceil(num4)
+			console.log("未取整之前的数值为:"+num4+"---向上取整后的数字为:"+num3)
+
+		}
+	</script>
+<body>
+	<h3>1. document</h3>
+	<h3>2. location</h3>
+</body>
+</html>
