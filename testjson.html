@@ -1,0 +1,89 @@
+<!-- 
+	author:daxue
+	规范:
+		常量,全局变量:(全大写单词)
+		函数名,变量名(camelCase,lastName):小驼峰法(首单词小写第二个单词首字母大写)
+		空格,运算符前需加空格
+		缩进4个空格
+		复杂语句的通用规则:
+			将左花括号放在第一行的结尾。
+			左花括号前添加一空格。
+			将右花括号独立放在一行。
+			不要以分号结束一个复杂的声明。
+		对象定义的规则:
+			将左花括号与类名放在同一行。
+			冒号与属性值间有个空格。
+			字符串使用双引号，数字不需要。
+			最后一个属性-值对后面不要添加逗号。
+			将右花括号独立放在一行，并以分号作为结束符号。
+		每行代码字符<80
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json基础</title>
+</head>
+	<!-- 
+		JSON.parse() 用于将一个JSON字符串转换为JavaScript
+		JSON.stringify()  用于将一JavaScript值转换为JSON字符串
+		
+		href="#" 与 href="javascript:coid(0)"的区别
+		#包涵了一个位置信息,默认的锚是#top也就是网页的上端
+		而javascript:void(0),仅仅是一个死链接.
+		在页面很长的时候使用#定位具体位置,格式:#+id
+
+		JavaScript 函数定义时显式参数没有指定数据类型。
+		JavaScript 函数对隐式参数没有进行类型检测。
+		JavaScript 函数对隐式参数的个数没有进行检测。
+			安全的做法最好最参数进行初始化.
+
+		变量声明时如果不使用var,,即便它在函数内定义
+
+		document.getElementById("")
+		document.getElementsByTagName("")
+		document.getElementsByClassName("")
+	 -->
+<body>
+    <div class="div1">
+    </div>
+    <script type="text/javascript">
+    //json1为object类型
+    var json1 = {
+        "sites": [
+            { 'name': 'daxue', 'age': 18 },
+            { 'name': 'xiaoxue', 'age': 20 }
+        ]
+    };
+    console.log(json1['sites'][0]['name']);
+
+
+    var text = '{ "sites" : [' +
+        '{ "name":"Runoob" , "url":"www.runoob.com" },' +
+        '{ "name":"Google" , "url":"www.google.com" },' +
+        '{ "name":"Taobao" , "url":"www.taobao.com" } ]}';
+
+    obj_json = JSON.parse(text);
+    console.log(obj_json.sites[1].name);
+
+    //问题:理解arguments对象
+    function fun(){
+    	console.log(arguments);
+    }
+    fun();
+
+    window.onload = function() {
+    	du=document.write(Date());//document文档有内容,调用会覆盖.
+    	//document.getElementById(id).innerHTML=新的 HTML
+    }
+    </script>
+</body>
+
+</html>
+
+<!-- 匿名自我调用函数 
+		(function(){
+			alert("today is good");
+		})();
+-->
